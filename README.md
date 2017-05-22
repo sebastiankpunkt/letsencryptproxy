@@ -1,26 +1,24 @@
-# letsencryptproxy
-LetsEncryptProxy is small IIS web application for forwarding LetsEncrypt authorization to your LAN clients.
-
-LetsEncryptProxy version 0.9, 22.05.2017
+# LetsEncryptProxy version 0.9, 22.05.2017
+LetsEncryptProxy is a small IIS web application for forwarding LetsEncrypt validations to your LAN internal clients.
 
 Feel free to modify it. It's not a big thing, so do whatever you want with it.
 
 
-How it works:
+## How it works:
 
 LetsEncrypt usually can only be used on a web server which can be connected from the Internet on Port 80.
-The ACME client creates a file on the web server containing a given key. After the creation the LetsEncrypt servers downloads the file for validation. Only if the token file is available and the key is correct it will deliver the certificate to the client.
+The ACME client creates a file on the web server containing a given key. After the creation the LetsEncrypt servers compares this files content for validation. Only if the token file is available and the key is correct it will deliver the certificate to the client.
 If you want to use valid LetsEncrypt certificates in your own LAN you can use some workarounds. One of these workarounds is this small web application.
 The LetsEncryptProxy accepts all well formed LetsEncrypt-Requests, checks the host name against a white list, will itself ask the client for the token file and deliver the key to the requesting LetsEncrypt-Server.
 
-Normal LetsEncrypt validation:
+### Normal LetsEncrypt validation:
 Web server <-------> LetsEncrypt
 
-LetsEncrypt validation over LetsEncryptProxy:
+### LetsEncrypt validation over LetsEncryptProxy:
 Client <-------> LetsEncryptProxy <-------> LetsEncrypt
 
 
-What it needs: 
+## What it needs: 
 
 - IIS, accessible from Internet on HTTP port 80 with URL Rewrite module
 - Domain with wildcard record (*.yourdomain) pointing to your IIS IP
@@ -29,10 +27,10 @@ What it needs:
 
 I'm using it with several Windows clients and Synology NAS but it should work with every client based on ACME challenge response.
 
-The whole LetsEncryptProxy directory is a Visual Studio 2015 project. 
+The whole LetsEncryptProxy directory contains the Visual Studio 2015 project files. The main parts of the application are located in the files response.aspx.cs and web.config
 
 
-Installation:
+## Installation:
 
 1. Save the content of the directory on your web server.
 
@@ -47,7 +45,7 @@ If the server does not host a web site on the domain:
 Create a new web site in IIS. Select LetsEncrypt directory as path
 
 
-3. The application pool of the web application needs the correct permissions to the LetsEncryptProxy directory: Read access to the main directory and it's sub folders, Read and write access to the Logs directory.
+3. The application pool of the web application needs the correct permissions to the LetsEncryptProxy directory: Read/Execute access to the main directory and it's sub folders, Read and write access to the "Logs" directory.
 
 4. Open the URL http://yourdomain/.well-known in your browser. The text "LetsEncryptProxy is running" should appear.
 
