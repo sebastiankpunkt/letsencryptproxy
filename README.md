@@ -13,6 +13,12 @@ The ACME client creates a file on the web server containing a given key. After t
 If you want to use valid LetsEncrypt certificates in your own LAN you can use some workarounds. One of these workarounds is this small web application.
 The LetsEncryptProxy accepts all well formed LetsEncrypt-Requests, checks the host name against a white list, will itself ask the client for the token file and deliver the key to the requesting LetsEncrypt-Server.
 
+Normal LetsEncrypt validation:
+Web server <-------> LetsEncrypt
+
+LetsEncrypt validation over LetsEncryptProxy:
+Client <-------> LetsEncryptProxy <-------> LetsEncrypt
+
 
 What it needs: 
 
