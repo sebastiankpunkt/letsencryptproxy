@@ -173,6 +173,14 @@ namespace LetsEncryptProxy
 			return key;
 		}
 
+		/// <summary>
+		/// Logs a request
+		/// </summary>
+		/// <param name="DnsSafeHost">Host name</param>
+		/// <param name="RawUrl">Raw URL</param>
+		/// <param name="UserHost">User host</param>
+		/// <param name="IsLetsEncrypt"></param>
+		/// <param name="ResponseString"></param>
 		void LogVisit(string DnsSafeHost, string RawUrl, string UserHost, bool IsLetsEncrypt, string ResponseString = "")
 		{
 			StringBuilder sb = new StringBuilder();
@@ -200,6 +208,11 @@ namespace LetsEncryptProxy
 
 		static object loglock = new object();
 
+		/// <summary>
+		/// Writes an entry to a log file. One log file per day, one for all requests, one for letsencrypt requests only
+		/// </summary>
+		/// <param name="s">String to write</param>
+		/// <param name="IsLetsEncrypt">Determines if requests is a challenge response request</param>
 		void WriteLog(string s, bool IsLetsEncrypt)
 		{
 			if (EnableLogging)
