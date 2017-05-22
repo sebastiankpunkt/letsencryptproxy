@@ -50,7 +50,7 @@ Create a new web site in IIS. Select LetsEncrypt directory as path
 
 4. Open the URL http://yourdomain/.well-known in your browser. The text "LetsEncryptProxy is running" should appear.
 
-5. Enter all A records for your internal LAN PCs (Host.yourdomain pointing to the client PCs IP)
+5. Enter all A records for your internal LAN PCs to your own LAN DNS server (hostname.yourdomain pointing to the client PCs IP)
 
 6. Enter all host names of your LAN host in the web.config file as value for DnsHostWhiteList. For more than one entry use semicolon (;) for separation. If you would want to allow all host names, use * (would not recommend that).
 
