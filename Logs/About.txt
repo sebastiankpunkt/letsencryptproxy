@@ -1,0 +1,1 @@
+Default place for log files. It's recommended to change the location of the log files to a non public directory.
