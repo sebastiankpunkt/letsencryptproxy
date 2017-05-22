@@ -146,7 +146,7 @@ namespace LetsEncryptProxy
 					WriteLog(e.ToString() +" "+ url, true);
 				}
 
-				// Some web server configurations only allow HTTP connections. So if HTTP doesn't work, try HTTPS.
+				// Some web server configurations only allow HTTPS connections. So if HTTP doesn't work, it will try HTTPS.
 				if(string.IsNullOrEmpty(key))
 				{
 					url = url.Replace("http://", "https://");
