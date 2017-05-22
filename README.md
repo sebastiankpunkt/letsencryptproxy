@@ -30,13 +30,15 @@ Installation:
 
 1. Save the content of the directory on your web server.
 
+2. Create the Web application:
+
 If the server is hosting a web site on the domain:
-2. Create a new application directory for your default web site in IIS with the alias name ".well-known". Select the LetsEncrypt directory as path.
+Create a new application directory for your default web site in IIS with the alias name ".well-known". Select the LetsEncrypt directory as path.
 
 OR
 
 If the server does not host a web site on the domain:
-2. Create a new web site in IIS. Select LetsEncrypt directory as path
+Create a new web site in IIS. Select LetsEncrypt directory as path
 
 
 3. The application pool of the web application needs the correct permissions to the LetsEncryptProxy directory: Read access to the main directory and it's sub folders, Read and write access to the Logs directory.
