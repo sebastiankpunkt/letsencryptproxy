@@ -23,8 +23,8 @@ Client <-------> LetsEncryptProxy <-------> LetsEncrypt
 ## What it needs: 
 
 - IIS, accessible from Internet on HTTP port 80 with URL Rewrite module
-- Domain with wildcard record (*.yourdomain) pointing to your IIS IP
-- DNS server for your LAN using your public domain (*.yourdomain)
+- Domain with wildcard record (*.yourdomain) pointing to your IIS IP or A record for subdomains
+- DNS server for your LAN using your public domain inside your LAN (*.yourdomain)
 - LetsEncrypt client software as usual with outgoing internet access, together with a web server on the clients
 
 I'm using it with several Windows clients and Synology NAS but it should work with every client based on ACME challenge response.
